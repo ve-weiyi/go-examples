@@ -41,6 +41,8 @@ func Connect(dsn string) {
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 	sqlDB.SetConnMaxLifetime(time.Hour)
+
+	log.Printf("Mysql数据库连接成功:%v", dsn)
 }
 
 func CloseDB() {
