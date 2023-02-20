@@ -1,11 +1,10 @@
-package db
+package database
 
 import (
 	"database/sql"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"gorm.io/gorm/schema"
 	"log"
 	"time"
 )
@@ -13,21 +12,13 @@ import (
 var db *gorm.DB
 var sqlDB *sql.DB
 
-func Connect(dsn string) {
+const dsn = "root:mysql7914@(127.0.0.1:3306)/anker?charset=utf8mb4&parseTime=True&loc=Local"
+
+func Connect() {
 	var err error
 
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
-		//PrepareStmt:            true, // 缓存预编译语句
-		// gorm日志模式：silent
 		Logger: logger.Default.LogMode(logger.Info),
-		// 外键约束
-		DisableForeignKeyConstraintWhenMigrating: true,
-		// 禁用默认事务（提高运行速度）
-		SkipDefaultTransaction: true,
-		NamingStrategy: schema.NamingStrategy{
-			// 使用单数表名，启用该选项，此时，`User` 的表名应该是 `user`
-			SingularTable: true,
-		},
 	})
 	if err != nil {
 		log.Fatalf("GORM 数据库连接失败: %v", err)

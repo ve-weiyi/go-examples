@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/ve-weiyi/go-examplse/src/core/db"
+	"github.com/ve-weiyi/go-examplse/src/core/database"
 	"github.com/ve-weiyi/go-examplse/src/router"
 	"log"
 	"net/http"
@@ -16,11 +16,9 @@ func init() {
 	log.Println("init invoke")
 }
 
-const dsn = "root:mysql7914@(127.0.0.1:3306)/anker?charset=utf8mb4&parseTime=True&loc=Local"
-
 func main() {
-	db.Connect(dsn)
-	defer db.CloseDB()
+	database.Connect()
+	defer database.CloseDB()
 
 	routers := router.InitRouter()
 

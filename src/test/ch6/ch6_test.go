@@ -1,4 +1,4 @@
-package chater6
+package ch6
 
 import (
 	"log"

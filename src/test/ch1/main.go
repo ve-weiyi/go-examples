@@ -1,5 +1,5 @@
 // 1.包名：包名一般与目录相同,相同目录只能有一个包名
-package main
+package ch2
 
 // 2.导包：可以使用 import "p1"  import "p2"
 // 或者 import ("p1","p2" )

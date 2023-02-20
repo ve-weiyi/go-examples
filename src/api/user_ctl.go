@@ -3,13 +3,12 @@ package api
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/ve-weiyi/go-examplse/src/core/db"
 	"github.com/ve-weiyi/go-examplse/src/model"
 	"github.com/ve-weiyi/go-examplse/src/utils/response"
 )
 
 func Login(name, pwd string) (*model.User, error) {
-	db := db.DB()
+	db := database.DB()
 	var user model.User
 	user.Username = name
 	user.Password = pwd

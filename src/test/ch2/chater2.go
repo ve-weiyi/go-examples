@@ -1,4 +1,4 @@
-package chater2
+package ch2
 
 import "log"
 

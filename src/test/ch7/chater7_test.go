@@ -1,4 +1,4 @@
-package chater7
+package ch7
 
 import (
 	"errors"
@@ -20,15 +20,6 @@ func TestDefer(t *testing.T) {
 	// 最后一个放入, 位于栈顶, 最先调用
 	defer log.Println(3)
 	log.Println("defer end")
-}
-
-// 2.error错误
-func TestError(t *testing.T) {
-	err2 := sub.GetApiError()
-	//err2 := errors.New("i'm a error")
-	errors.Is(err2, sub.TokenError)
-	errors.As(err2, &sub.TokenError)
-	log.Printf("%v %v  %v", errors.Is(err2, sub.TokenError), err2, sub.TokenError)
 }
 
 // 3.panic异常，会使程序崩溃

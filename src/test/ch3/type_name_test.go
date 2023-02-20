@@ -1,4 +1,4 @@
-package chater3
+package ch3
 
 import (
 	"fmt"

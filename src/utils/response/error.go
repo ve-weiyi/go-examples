@@ -1,10 +1,5 @@
 package response
 
-import (
-	"encoding/json"
-	"errors"
-)
-
 type Response struct {
 	Code    int
 	Message string
@@ -23,21 +18,6 @@ type ErrorResponse struct {
 }
 
 // 结构体方法
-func (m *SuccessResponse) ToJson() string {
-	bytes, err := json.MarshalIndent(m, "", " ")
-	if err != nil {
-		return ""
-	}
-
-	return string(bytes)
-}
-
-func (m *SuccessResponse) GetAddress() (*Response, error) {
-	if m.Code == 200 {
-		return nil, errors.New("返回错误")
-	}
-	return &m.Response, nil
-}
 
 func NewOkResponse(data interface{}) *SuccessResponse {
 	return &SuccessResponse{

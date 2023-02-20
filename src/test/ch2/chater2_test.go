@@ -1,4 +1,4 @@
-package chater2
+package ch2
 
 import (
 	log2 "github.com/ve-weiyi/go-examplse/src/utils/log"
@@ -11,6 +11,7 @@ func Test1(t *testing.T) {
 	//小写包内可见
 	log.Printf(helloWorld())
 	log.Printf(HelloWorld())
+
 }
 
 func Test2(t *testing.T) {
